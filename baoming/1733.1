@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=7;IE=edge;chrome=1">
+<title>0518 - 高能测试 - 云课 - 专业的在线学习平台</title>
+<meta name="title" content="高能测试 - 0518 - 云课 - 专业的在线学习平台">
+<meta name="keywords" content="高能测试 - 云课 - Yunke K12 在线学习 直播 云课网 在线教育">
+<meta name="description" content="高能测试 - 云课(Yunke.com) -专业的K12在线学习平台。以直播授课为核心，打破时间与空间的界限，为教师高效教学、学生高效学习、家长高效管控及机构高效管理提供完美解决方案">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" type="text/css" href="//test.gn100.com/assets_v2/css/bootstrap/bootstrap.min.css?ver=121">
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="/assets_v2/css/bootstrap/bootstrap.min.css">
+<script src="//test.gn100.com/assets_v2/bootstrap-3.3.0/js/html5shiv.min.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/bootstrap-3.3.0/js/respond.min.js?ver=115"></script>
+<![endif]-->
+<!--[if lt IE 8]>
+<script src="//test.gn100.com/assets_v2/js/ie8.js?ver=115"></script>
+<![endif]-->
+<script type="text/javascript" src="//test.gn100.com/assets_v2/js/jquery/jquery-1.11.1.min.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/layer/layer.js?ver=115"></script>
+<link rel="stylesheet" type="text/css" id="cssSkin" href="//test.gn100.com/assets_v2/css/player1.css?ver=121">
+<link rel="icon" type="image/x-icon" href="//test.gn100.com/assets_v2/img/platform/yunke.ico?ver=45"/>
+<script type="text/javascript" src="//www.yunke.com/crossdomain.php"></script>
+<script src="//test.gn100.com/assets_v2/js/swfobject.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/player.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/HTML5Player.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/display_optimize.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/message_v2.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/course_common_v2.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/course_play_v2.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/course_comment_v2.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/jquery/jquery.growthlayer.js?ver=115"></script>
+<script src="//test.gn100.com/assets_v2/js/jquery.share.js?ver=115"></script>
+
+<script type="text/javascript">
+var COOKIE_UID_NAME="uid_test";
+</script>
+<script src="//test.gn100.com/assets_v2/js/user.js?ver=115"></script>
+<meta name="weixin" imgurl="//testf.gn100.com/6,29853735d492" desc="0518"/>
+
+<script type="text/javascript">
+var pyy = false;
+var planId = 1733;
+var isLogin = 0;
+var iswxLogin = 0;
+var courseId = 532;
+var class_id = 591;
+var userId = parseInt(0);
+var userOwner = parseInt(183);
+var isReg = 0;
+var userToken = "0";
+var userFlag = userToken.substring(0, 5);
+var userThumb = "";
+var filecdn = "//testf.gn100.com";
+var chatPull = "//test.gn100.com:8001/message.plan.pull";
+var chatWs = "ws://test.gn100.com:8001/message.plan.ws";
+var chatPullSet = "//test.gn100.com:8001/message.plan.add";
+var myHost = "http://test.gn100.com";
+var isLiving = false;
+var teacherName = '泠嘻';
+var teacherId = 22410;
+var teacherThumb = '//testf.gn100.com/2,027984aae283';
+var levelshow ="";
+var leveltitleshow="";
+var fee_type = 0;
+if ("/" != filecdn[filecdn.length - 1]) {
+    filecdn += "/";
+}
+var message;
+$(document).ready(function () {
+    if (userId) {
+        $("#href_logout").attr("target", "");
+    }
+    $(window).resize(function () {
+        var w = $("#playerContent").innerWidth();
+        var h = parseInt(w / 16 * 9);
+        var box_h = $(window).height() - 80;
+        if (h > box_h) {
+            h = box_h;
+        }
+        playerbox();
+    }).trigger("resize");
+    //fix ie8 trigger (twice)
+    setTimeout(function () {
+        $(window).trigger("resize");
+    }, 50);
+
+    $("#fullscreen").click(function () {
+        FullScreen.toggle();
+    });
+
+    var flashvars = {
+        auto_play: true,
+        stream_type: "高清",
+        fullscreen_func: "FullScreen.toggle",
+        chat_publisher_func: "message.flash_callback",
+        microphone_func: "message.microphone_callback",
+        player_fullscreen_func: "message.flash_fullscreen_callback",
+        buy_box_func: "message.flash_buy_box_callback",
+        error_func: "Player.error",
+        video_end: "message.flash_end_callback",
+        camera_handle: "message.flash_camera_handle",
+        plan_id: "1733",
+        showPlayerMessage: "showPlayerMessage",
+        hidePlayerMessage: "hidePlayerMessage",
+        stopRecord:"message.stopRecord"
+    };
+
+    var params = {
+        menu: "false",
+        scale: "noScale",
+        allowFullscreen: "true",
+        allowScriptAccess: "always",
+        bgcolor: "",
+        wmode: "opaque"
+    };
+
+    var attributes = {
+        id: "player",
+        name: "player"
+    };
+
+    swfobject.embedSWF(
+        "//test.gn100.com/assets/swf/Player.swf?ver=r61",
+        "player", "100%", "100%", "13.0.0",
+        "//test.gn100.com/assets/swf/expressInstall.swf?ver=r61",
+        flashvars, params, attributes, function (r) {
+            if (r.success == false) {
+                H5Player.init(planId, "");
+            }
+        }
+    );
+
+    message = planPlay();
+    });
+</script>
+<script>
+$(document).ready(function(e){
+	var source= "reg";
+	$("#regcheck1,#regcheck2,#regcheck3,#regcheck4,#regcheck5,#regcheck6").click(function(){
+		var w,h;
+		if($(window).width()>800){
+			w='476px';
+			h='360px';
+		}else{
+			w='90%';
+			h='400px';
+		}
+		if(userApi.isLogin()){
+			$.post("/course.layerplan.loginedRegAjax",{
+				courseid:courseId,
+				classid:class_id
+			},function(r){
+				if (r.code == 0) {
+					layer.msg('报名成功');
+					setTimeout(function(){ location.reload(); },2000);
+				} else if(r.code > 0){
+					$(".x_error").html(r.message);
+					return false;
+				} else if (r.code == -2) {
+					var index = layer.load(2);
+					$.post("/course/pay/check", {
+						classId: class_id,
+						cid: courseId
+					}, function (r) {
+						layer.close(index);
+						if (r.code == 0) {
+							location.href = "/course/info/pay/"+ r.result.uniqueOrderId;
+						} else {
+							//layer.msg(r.errMsg, function(){
+								location.reload();
+							//});
+						}
+					}, "json");
+				} else if (r.code == -5 ) {
+					layer.msg('名额已满');
+					setTimeout(function(){ location.reload(); },2000);
+				} else if (r.code == -6 ) {
+					layer.msg('你已经报了别的班啦');
+					setTimeout(function(){ location.reload(); },2000);
+				} else if (r.code == -3 || r.code == -4) {
+					location.reload();
+				} else {
+					layer.msg('未知错误', function(){
+						location.reload();
+					});
+				}
+			},"json");
+
+			//如果未登录
+		}else{
+			if (userApi.isWeiXin()) {
+				location.replace("/weixin.user.login/?url=//"+location.hostname+"/course.info.show/"+courseId);
+			} else {
+            if($(window).width() < 800){
+                location.replace("/site.main.login/?url=//"+location.hostname+"/course.plan.play/1733")
+            }else{
+				layer.open({
+                    title:false,
+					type: 2,
+					area: [w, h],
+					shadeClose: true,
+					content: ['/layer.main.userLogin/'+courseId+'/'+class_id+'/'+source, 'no']
+				});
+                }
+			}
+			//弹登录层
+		}
+
+		return false;
+	});
+
+});
+</script>
+</head>
+<body>
+<header class="header hidden-xs hidden-sm">
+    <div class="header-main">
+        <a class="g-logo fs14" href="/" target="_blank"><span class="index-icon"></span>高能测试</a>
+        <div class="g-title">
+            <a href="/course.info.show/532" target="_blank">0518&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第1章</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="/teacher.detail.entry/22410" target="_blank">
+								泠嘻							</a>
+		</div>
+		<div class="g-navright fs12">
+                        <!--登录-->
+            <div class="login">
+                <a href="/site.main.login" id="login">登录</a> | <a href="/site.main.register">注册</a>
+            </div>
+                    </div>
+    </div>
+</header>
+<!-- coursebox -->
+<div class="c" id="content">
+    <div id="coursebox" class="coursebox">
+        <div class="course-learn col-xs-20">
+                <div class="course-total">
+                    <!--直播课结束层 开始-->
+                    <!--<div class="course-box" style="height:100%;display:none;" id="courseingend">-->
+           <div class="course-box"  id="courseingend" style="display:none">
+                        <div class="discuss">
+                            <div class="discuss-m col-sm-17">
+
+                                    <div class="d-tips">
+                                        <div class="img col-sm-17"><img src="//test.gn100.com/assets_v2/img/yun.png?ver=45" alt=""></div>
+                                        <div class="title">
+                                            <span class="fs22">
+												                                                    														游客                                                                                                                                                            同学，下课喽！                                            </span>
+                                            <span class="fs16 cWhite">
+                                                <img src="//test.gn100.com/assets_v2/img/d-star.png?ver=45" alt="">本节共获得老师点赞<b class="cPink" id="courseinggood">0</b>次 <img src="//test.gn100.com/assets_v2/img/d-star.png?ver=45" alt=""> </span>
+                                            <span>稍后可以在章节查看本节录像哦~</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-rank hidden-xs fs14">
+                                        <div class="an-rank col-sm-7">
+                                            <div class="t">(答题统计)</div>
+                                            <ul class="an-list">
+                                                <li>
+                                                    <p><span><img src="//test.gn100.com/assets_v2/img/r2.png?ver=45" alt=""></span></p>共计问题:<i id="countAll">20</i>道                                                </li>
+                                                <li>
+                                                    <p><span><img src="//test.gn100.com/assets_v2/img/r.png?ver=45" alt=""></span></p>答对:<span class="cPink fs16" id="countCorrect">10</span> 道                                                </li>
+                                                <li>
+                                                    <p><span><img src="//test.gn100.com/assets_v2/img/r.png?ver=45" alt=""></span></p>答错:<span class="cPink fs16" id="countMistake">10</span> 道                                                </li>
+                                                <li>
+                                                    <p><span><img src="//test.gn100.com/assets_v2/img/r.png?ver=45" alt=""></span></p>未答:<span class="cPink fs16" id="countMiss">10</span> 道                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="c-rank col-sm-7">
+                                            <div class="t">你的班级排名:<b class="cPink" id="courseingsort">第0名</b></div>
+                                            <ul class="rank-list" id="endinggoodlist"></ul>
+                                        </div>
+                                    </div>
+                                                            </div>
+                        </div>
+                    </div>
+                    <!--直播课结束层 结束-->
+                    <!--录播课结束层 开始-->
+                    <div class="course-box3" id="courseend" style="display:none">
+                        <div class="tips" >
+                                <div class="tips-text3 col-sm-7">
+                                    <p><img src="//test.gn100.com/assets_v2/img/flower.png?ver=45"></p>
+                                    <p class="time-tips hidden-xs" id="nextTime">距离下一节开课时间 4月15日</p>
+                                    <div class="btn">
+                                        <span class="fs22">本节学习完了</span>
+                                        <a class="col-sm-10 col-xs-8" id="nextPlan">
+                                            <button class="fs16">学习下一节</button>
+                                        </a>
+                                        <a href="/course.plan.play/1733" class="col-sm-10 col-xs-8 fs16 cWhite">
+                                            重新学习                                        </a>
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+
+                    <div class="course-box2" id="courseing">
+                        <div class="alert-layer" id="call_buff" style="display:none">
+                            <div class="alert-bg2"></div>
+                            <div class="alert-content2">
+                                <div class="alert-title">
+                                    <span class="alert-close-btn" onclick="$('#call_buff').hide()"></span>
+                                    <span class="alert-title-txt"><span></span>云课网</span>
+                                </div>
+                                <div class="alert-main2">
+                                    <div class="alert-mark"></div>
+                                    <div class="alert-mark-txt fs14">
+                                        <p>获取课程信息失败，请刷新页面。</p>
+                                        <p class="tec"><span></span>点击刷新</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                                                        <div id="fee_remind" class='sk' style="display:none;">
+                            <div class="sk-box col-sm-14 col-lg-10 col-md-14 col-lg-offset-7 col-md-offset-5 col-sm-offset-4">
+                                <div class='dlzc hidden-sm hidden-xs'>
+                                    <p>
+                                        <img src="//test.gn100.com/assets_v2/img/class-icon.png?ver=45" height="25" alt="">&nbsp;免费试看时间到，报名后可继续观看                                    </p>
+                                </div>
+                                <div class='user_content_lb col-sm-20 col-xs-20 col-md-20'>
+                                    <dl class="col-sm-20 col-xs-20">
+                                        <dt class='col-md-12 hidden-xs hidden-sm'>
+                                            <div class='courseThumb' style="position:relative;">
+                                                <img data-class="thumb" src="//testf.gn100.com/1,298337d6f68a">
+                                            </div>
+                                        </dt>
+                                        <dd class='col-xs-20 col-md-8'>
+                                            <h1 data-class="title" class="fs16">初一数学满分冲刺班</h1>
+                                            <p><span data-class="fee" class="cRed fs14">￥689</span></p>
+                                            <p>主讲老师：<span data-class="teacher fs14">
+																						泠嘻																						</span></p>
+                                            <a href="/course.info.show/532" data-class="href" target="_blank" class="btn fs16 col-xs-20 col-md-20">立即购买</a>
+                                        </dd>
+                                    </dl>
+                                                                            <p class="fs14">没有账号？<a href="/site.main/register" class="cYellow" target="_blank">立即注册</a></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div id="sign_remind" class='sk' style="display:none;">
+                            <div class="sk-box col-sm-14 col-lg-10 col-md-14 col-lg-offset-7 col-md-offset-5 col-sm-offset-4">
+                                <div class='dlzc hidden-xs hidden-sm'>
+                                    <p><img src="//test.gn100.com/assets_v2/img/class-icon.png?ver=45" alt="" height="25">&nbsp;免费试看时间到，报名后可继续观看
+                                    </p>
+                                </div>
+                                <div class='user_content_lb col-sm-20 col-xs-20 col-md-20'>
+                                    <dl class="col-sm-20 col-xs-20">
+                                        <dt class='hidden-xs hidden-sm col-md-12'>
+                                        <div class='courseThumb' style="position:relative;">
+                                            <img data-class="thumb" src="//testf.gn100.com/1,298337d6f68a"/>
+                                        </div>
+                                        </dt>
+                                        <dd class='col-sm-20 col-xs-20 col-md-8'>
+                                            <h1 data-class="title">初一数学满分冲刺班</h1>
+                                            <p class="fs14"><span class="cGreen">免费</span></p>
+                                            <p class="fs14">主讲老师：<span data-class="teacher">高海磊</span></p>
+																						<a href="" data-class="href" target="_blank" id="regcheck3" class="btn fs16 col-xs-20 col-md-20">立即登录</a>
+																						</dd>
+										</dl>
+										                                        <p class="fs14">没有账号？<a href="/site.main/register" class="cYellow" target="_blank">立即注册</a></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div id="login_remind" class='sk' style="display:none;">
+                            <div class='sk-box col-sm-14 col-lg-10 col-md-14 col-lg-offset-7 col-md-offset-5 col-sm-offset-4'>
+                                <div class='dlzc hidden-xs hidden-sm'>
+                                    <p><img src="//test.gn100.com/assets_v2/img/class-icon.png?ver=45" alt="" height="25">&nbsp;免费试看时间到，报名后可继续观看</p>
+                                </div>
+                                <div class='user_content_lb col-sm-20 col-xs-20 col-md-20'>
+                                    <dl class="col-sm-20 col-xs-20">
+                                        <dt class='hidden-xs hidden-sm col-md-12'>
+                                            <div class='courseThumb' style="position:relative;">
+                                                <img data-class="thumb" src="//testf.gn100.com/1,298337d6f68a">
+                                            </div>
+                                        </dt>
+                                        <dd class='col-sm-20 col-xs-20 col-md-8'>
+                                            <h1 data-class="title">初一数学满分冲刺班</h1>
+                                            <p class="fs14"><span class="cGreen">免费</span></p>
+                                            <p class="fs14">主讲老师：<span data-class="teacher">高海磊</span></p>
+																						<a href="" data-class="href" target="_blank" id="regcheck5" class="btn fs16 col-xs-20 col-md-20">立即登录</a>
+											                                        </dd>
+                                    </dl>
+                                                                            <p class="fs14">没有账号？<a href="/site.main/register" class="cYellow" target="_blank">立即注册</a></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div id="login_plan_need" class='sk' style="display:none;">
+                            <div class='sk-box col-sm-14 col-lg-10 col-md-14 col-lg-offset-7 col-md-offset-5 col-sm-offset-4'>
+                                <div class='dlzc hidden-sm hidden-xs'>
+                                    <p><img src="//test.gn100.com/assets_v2/img/class-icon.png?ver=45" alt="" height="25">&nbsp;立即报名可观看本课程</p>
+                                </div>
+                                <div class="user_content_lb col-sm-20 col-xs-20 col-md-20">
+                                    <dl class="col-sm-20 col-xs-20">
+                                        <dt class="hidden-xs hidden-sm col-md-12">
+                                            <div class='courseThumb' style="position:relative;">
+                                                <img data-class="thumb" src="//testf.gn100.com/1,298337d6f68a">
+                                                <div class='iconFee'></div>
+                                                <div class='iconStart' style="display:none;"></div>
+                                            </div>
+                                        </dt>
+                                        <dd class='col-sm-20 col-xs-20 col-md-8'>
+                                            <h1 data-class="title">0518</h1>
+                                                                                            <div class="fs14"><p class="fs14" style="color:#5FB41B;">免费</p>
+                                            											<p data-class="teacher" style="color:#fff;font-size:14px;">主讲老师：
+																						泠嘻																						</p>
+										</div>
+																					<a href="" data-class="href" target="_blank" id="regcheck6" class="btn fs16 col-xs-20 col-md-20">立即登录</a>
+											                                        </dd>
+                                    </dl>
+                                                                            <p class="fs14" style="line-height:30px;width:100%;overflow:hidden;">没有账号？<a href="/site.main/register" class="cYellow" target="_blank">立即注册</a></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div id="sign_plan_need" class='sk' style="display:none;">
+                            <div class="sk-box col-sm-14 col-lg-10 col-md-14 col-lg-offset-7 col-md-offset-5 col-sm-offset-4">
+                                <div class='dlzc hidden-xs hidden-sm'>
+                                                                            <p data-class="mind"><img src="//test.gn100.com/assets_v2/img/class-icon.png?ver=45" alt="" height="25">&nbsp;立即报名可观看本课程</p>
+                                                                    </div>
+                                <div class='user_content_lb col-sm-20 col-xs-20 col-md-20'>
+                                    <dl class="col-sm-20 col-xs-20">
+                                        <dt class='hidden-sm hidden-xs col-md-12'>
+                                        <div class='courseThumb' style="position:relative;">
+                                            <img data-class="thumb" src="//testf.gn100.com/1,298337d6f68a"/>
+                                        </div>
+                                        </dt>
+                                        <dd class='col-sm-20 col-xs-20 col-md-8'>
+                                            <h1 data-class="title">0518</h1>
+                                                                                            <p><span class="cGreen">免费</span>&nbsp;</p>
+                                                                                            <p style="font-size:14px;color:#fff">主讲老师：<span data-class="teacher">
+																										泠嘻																									</span></p>
+																						<a href="" data-class="href" target="_blank" id="regcheck4" class="btn fs16 col-xs-20 col-md-20">立即登录</a>
+											                                        </dd>
+                                    </dl>
+                                                                            <p class="fs14 c-fl" style="width:100%;">没有账号？<a href="/site.main/register" class="cYellow" target="_blank">立即注册</a></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="overlay" style="display:none">
+                            <div class="o-layer">
+                                <p class="video-tip-img"></p>
+                                <p class="video-tip-info">
+                                    <span class="fs16">课程视频正在准备中...，请稍后再回来观看</span>
+                                    <a href="#" class="btn-yellow c-fl">返回课程页</a><!--a href="#" class="cYellow fs16">去找课</a-->
+                                </p>
+                            </div>
+                        </div>
+                        <div class="overlay" style="display:none">
+                            <div class="o-layer">
+                                <p class="o-vip-tips fs18">试听时间到了，报名后可观看完整视频</p>
+                                <p class="o-tips fs16">课程信息</p>
+                                <p class="o-title fs16">小学数学公开课集合训练精品班级</p>
+                                <p class="o-item">班级：地球班</p>
+                                <p class="o-item">讲师：小刘老师</p>
+                                <div class="o-item">
+                                    价格：免费<!--span class="cYellow">￥333</span-->
+                                    <div class="vip-a">
+                                        会员课程
+                                        <div class="vip-info">
+                                            <i></i>
+                                            <p>数学祥尊会员免费学 <a href="#" class="cYellow">立即续费</a></p>
+                                            <p>数学祥尊会员免费学 <a href="#" class="cYellow">立即开通</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn-yellow">立即登录</a><!--a href="#" class="cYellow fs16">注册</a-->
+                            <div class="o-vip-end fs14"><i class="vip-tips"></i>会员已失效，继续学习请 <a href="#" class="cYellow">立即购买</a> 课程或  <a href="#" class="cYellow">重新开通</a> 会员 <a href="#" class="o-close-btn"></a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                                        <div class="course-box" id="coursebefore" style="z-index:1">
+                        <div class="tips">
+                            <div class="tips-text">
+                                <p><img src="/assets_v2/img/icon-coffee.png"></p>
+                                                                    <p class="fs24">还没有开课哦！</p>
+                                                                <p class="fs16" >2016-05-18 14:45:00第1章 one </p>
+                            </div>
+                        </div>
+                    </div>
+                                        <!-- 课堂小测试 -->
+                    <div id="course_test" class="course-test hidden-xs" style="display:none;">
+                    <div class="bar fs16" id="course_title">随堂小测试 <a href="javascript:void(0);" class="course-test-close"></a></div>
+                    <div class="course-test-c" id="course_main"></div>
+                    <div class="course-test-sub" id="course_sub"><div class="course-test-status"></div><a href="javascript:void(0)" class="course-test-btn-sub">提交答案</a></div>
+                    </div>
+                    <div class="handle-area">
+                    <!--
+                        <div class="qrcode">
+                            <span class="qrcode-icon"></span>
+                            <p class="qrcode-img"><span class="qrcode-text">扫一扫 进入移动课堂</span><span class="codeimg"><img src="//qrcode.yunke.com/qr?s=200&t=http%3A%2F%2Ftest.gn100.com%2Fcourse.plan.play%2F1733?guide=0"></span></p>
+                        </div>
+                    -->
+                    <!-- 评论弹窗引导
+                        <div class="fixed-note-tip">
+                            <div class="note-tip-box">
+                                <a href="javascript:;"></a>
+                            </div>
+                        </div>
+                     /评论弹窗引导 -->
+                        <!-- 速笔记
+                            <div class="qute-note">
+                                <form action="" method="">
+                                    <div class="wrap-note">
+                                        <textarea type="text" class="bor1px note-ipt" placeholder="开始记笔记吧..." ></textarea>
+                                        <button class="sub-note-btn">速记</button>
+                                    </div>
+                                </form>
+                            </div>
+                        速笔记 -->
+                    <!-- 评论icon-->
+                        <div class="share-mobile fs14 ">
+                            <span class="mobile-icon"></span>手机看
+                            <img class="share-mobile-bg" src="//test.gn100.com/assets_v2/img/share-mobile-skin.png?ver=115" alt="">
+                        </div>
+                        <div class="share-area fs14">
+                            <span class="play-share-icon"></span>分享
+                            <p class="share-sns">
+                                <a href="javascript:;" class="share-qq" data-cmd="tqq" title="分享到QQ"></a>
+                                <a href="javascript:;" class="share-weixin" data-cmd="weixin" title="分享到微信"></a>
+                                <a href="javascript:;" class="share-tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            </p>
+                        </div>
+                                                <script>
+                            var wx_href='//qrcode.yunke.com/qr?s=200&t=http%3A%2F%2Ftest.gn100.com%2Fcourse.plan.play%2F1733?guide=0';
+                            $(function () {
+                                $(".share-area").share({
+                                    sPic    : 'http://testf.gn100.com/4,29847254a3bd',
+                                    wxHref  : wx_href
+                                });//分享
+                            })
+                        </script>
+                        <!--复制
+                            <input type="hidden" id="copyUrl">
+                            <span class="copyurl" onclick="javascript:copyUrl('copyUrl');">复制链接</span>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- toolbar -->
+        <div id="tool" class="tool">
+            <!-- toolmain -->
+            <div id="toolbar-main" class="toolbar-main">
+                <div class="section" id="section" style="height:0px">
+                    <div class="section-num hidden-xs">章节列表</div>
+                    <div class="section-c" id="sectionc">
+                                                                                                    <a>
+                                                        <p><strong class="fs14">one</strong>
+                                                                    <span class="sicon-4">未开课</span>
+                                </p>
+                                                                    <span class="kstime cDarkgray">05月18日 14:45</span>
+                                                            </a>
+                                                                            <a>
+                                                        <p><strong class="fs14">two 2</strong>
+                                                                    <span class="sicon-4">未开课</span>
+                                </p>
+                                                                    <span class="kstime cDarkgray">05月23日 14:45</span>
+                                                            </a>
+                                                                    </div>
+                </div>
+                <div class="chat" id="chat" style="height:0px">
+                    <div class="chat-num hidden-xs" id="student_total">同学人数：(<span class="cOrange"><b online>1</b></span total>/<b total>10</b>)</div>
+                    <ul id="chat_list"></ul>
+                    <div id="pattern_reply" style="display:none;" class="pattern">
+                        <p>当前内容，仅老师可见</p>
+                    </div>
+                    <div id="pattern_notalk" style="display:none;" class="pattern">
+                        <p>禁止讨论</p>
+                    </div>
+                    <a class="new-msg"id="news" data-action="toEnd" style="display:none;">
+                        <div class="angle"></div>
+                        <div class="chat-c"></div>
+                    </a>
+                    <div class="forum" id="forum">
+                        <div id="edit" class="edit col-md-20 col-sm-20 col-xs-20" data-id="">
+                            <div class="edit-c">
+                                <div class="edit-icon">
+                                    <div class="icon">
+                                        <span style="cursor:pointer"><img id="show_pop" src="//test.gn100.com/assets_v2/img/icon.png?ver=45"></span>
+                                        <div class="iconlist" id="show">
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/14.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/13.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/19.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/20.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/75.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/65.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/74.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/57.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/50.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/90.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/114.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/29.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/30.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/32.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/24.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/21.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/26.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/17.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/76.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/11.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/25.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/7.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/15.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/36.gif?ver=45"></a>
+                                            <a class="icon1"><img show src="//test.gn100.com/assets/images/expression/72.gif?ver=45"></a>
+                                        </div>
+                                    </div>
+                                    <div id="pattern_reply" style="display:none;" class="c-fr">
+                                        <p>仅老师可见</p>
+                                    </div>
+                                    <div id="pattern_notalk" style="display:none;" class="c-fr">
+                                        <p>禁止讨论</p>
+                                    </div>
+                                    <div id="ask" ask="ask" style="" class="c-fr hidden-sm hidden-xs">
+                                        <span ask="ask" class="hand-icon hidden-sm hidden-xs" msg_type=2 style="display:none;">举手发言</span>
+                                        <span ask="cancel" class="handing-icon" style="display:none;">等待发言</span>
+                                        <span ask="stop" class="handed-icon" style="display:none;">停止发言</span>
+                                    </div>
+                                </div>
+                                <div class="edit-text">
+                                                                    <div  placeholder="对老师说点什么吧" id="chat_input" contenteditable=false style="overflow:auto"><div id="regmind"><span class="cYellow regcheck" id="regcheck1" style="cursor:pointer;">立即报名</span>参与互动讨论</div></div>
+                                                                            </div>
+                                    <div class="edit-button">
+                                                                                    <button id="chat_send" disenable  title="">发送</button>
+                                                                            </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="rank-list" id="rank-list" style="height:0px">
+                    <div class="rank-num hidden-xs">学生排名</div>
+                    <div class="rank-self" id="good_self">
+                        <span><i good2>0</i></span>
+                        <span class="face">
+                            <img src="//test.gn100.com/assets/images/defaultPhoto1.png?ver=45">
+                        </span>
+                        <a href="/index.rank.rule" class="lv" title=""></a>
+                        <span class="name">
+							                                									游客                                                                                    </span>
+                        <span class="info"><b good>0</b>次</span>
+                    </div>
+                    <ul id="good_list"></ul>
+                </div>
+                <div id="datum-list" class="datum-list">
+					<div class="datum-num hidden-xs">课件下载</div>
+					<ul>
+									</ul>
+                </div>
+            </div>
+        <!-- toolbar -->
+        <div id="toolbar" class="toolbar">
+            <a href="#" id="rightbtn" class="rightbtn hidden-xs hidden-sm" title="隐藏菜单"><img src="//test.gn100.com/assets_v2/img/white-arrow.png?ver=45"></a>
+            <ul id="ck_list">
+                <li class="selected" ck="section"><span class="tabicon-1 hidden-xs hidden-sm"></span><span>章节</span></li>
+                <li ck="talk"><span class="tabicon-2 hidden-xs hidden-sm"></span><span class="c-fl">讨论</span></li>
+                <li ck="good"><span class="tabicon-3 hidden-xs hidden-sm"></span><span class="c-fl">排名</span></li>
+				                <!--li><span class="tabicon-4 hidden-xs hidden-sm"></span><span class="c-fl">笔记</span></li-->
+            </ul>
+        </div>
+    </div>
+    <div class="alert-layer" id="call_pop" style="display:none;">
+        <div class="alert-bg"></div>
+        <div class="alert-content">
+            <span class="alert-close-btn" onclick="$('#call_pop').hide()"></span>
+            <div class="alert-pet">
+                <img src="//test.gn100.com/assets_v2/img/p-layer-pet.png?ver=45">
+            </div>
+            <div class="alert-main"><p class="tec fs16">同学们老师点名啦</p></div>
+            <div class="alert-btn">
+                <input id="call_reply" class="btn-confirm" type="button" value="签到">
+            </div>
+        </div>
+    </div>
+    <!--引导层-->
+    <div class="alert-layer" id="guide-weixin" style="display:none">
+        <div class="alert-bg"></div>
+        <div class="alert-guide"><img src="//test.gn100.com/assets_v2/img/guide.png?ver=45"></div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+var guideParam=getUrlParam("guide");
+if(guideParam =="1"){
+    $('#guide-weixin').show();
+}
+$('#guide-weixin').click(function(){
+    $(this).hide();
+})
+//note
+$("#note-list").on("click",".note-edit",function(){
+    var note_txt=$(this).siblings("p").html();
+    var note_li=$(this).closest("li");
+    var note_textarea;
+    var note_hidden="";
+    var note_btn="<button class='cancel'>取消</button><button class='confirm'>确定</button>"
+    note_textarea="<textarea>"+note_txt+"</textarea>";
+    note_hidden="<input type='hidden' value='"+note_txt+"' data-time='"+$(this).siblings("span").html()+"'>";
+    note_li.empty();
+    note_li.append(note_textarea,note_btn,note_hidden);
+});
+$("#note-list").on("click",".cancel",function(){
+   var note_txt="<p>"+$(this).siblings("input").val()+"</p>";
+   var note_time="<span>"+$(this).siblings("input").attr("data-time")+"</span>";
+    var note_li=$(this).closest("li");
+   var note_btn="<i class='note-del'></i><i class='note-edit'></i>";
+   note_li.empty();
+   note_li.append(note_txt,note_time,note_btn);
+})
+//评论弹层
+$("#layer-comment").click(function(){
+	layer.open({
+    type: 2,
+    title:  ['评论', 'background:#ffa918;color:#ffffff'],
+    area: ['430px', '280px'],
+    shade: 0.8,
+    closeBtn:1,
+    shadeClose: true,
+    content: '/layer.main.playerComment?teacherId='+teacherId+'&planId='+planId+'&userOwner='+userOwner+'&courseId='+courseId+''
+	});
+});
+//速记
+    $(".note-tip-box a").click(function () {
+        $(".note-tip-box").hide();
+        $(".fixed-note-tip").hide();
+    });
+
+    var orgNav = $('#org-nav'), orgNavmenu = $('#org-sub-menu');
+    orgNav.click(function () {
+        if (orgNavmenu.height() == 0) {
+            orgNavmenu.animate({ height: 90 });
+            var t = setTimeout("$('#org-sub-menu').animate({ height:0 })", 5000);
+        } else {
+            orgNavmenu.animate({ height: 0 });
+        }
+    });
+
+    orgNavmenu.find('a').click(function () {
+        orgNavmenu.animate({ height: 0 })
+    });
+
+});
+
+$(function ($) {
+    var tool_width = $("#tool").width();
+    var toolbar_main_width = $("#toolbar-main").width();
+    var video_width = $("#coursebox").width();
+
+    function close_list() {
+        if ($("#tool").width() != 60) {
+            $("#tool-main").animate({ width: "0px" });
+            $("#tool").animate({ width: "60px" });
+            $("#coursebox").animate({ width: video_width + tool_width - 60 });
+        }
+    }
+
+    function open_list() {
+        if ($("#tool").width() == 60) {
+            $("#tool").animate({ width: "385px" });
+            $("#tool-main").animate({ width: tool_width });
+            $("#coursebox").animate({ width: video_width });
+        }
+    }
+
+    $('#rightbtn').click(function () {
+        if($(this).find("img").attr("src")=="//test.gn100.com/assets_v2/img/white-arrow.png?ver=45"){
+            $(this).find("img").attr("src","//test.gn100.com/assets_v2/img/white-arrow2.png?ver=45");
+        }else{
+            $(this).find("img").attr("src","//test.gn100.com/assets_v2/img/white-arrow.png?ver=45");
+        }
+        if ($("#tool").width() == tool_width) {
+            close_list();
+        } else {
+            open_list();
+        }
+    });
+
+    $("#sectionc > a strong").each(function (i, elem) {
+        $(this).text((i + 1) + ". " + $(this).html());
+    });
+    /*设置滚动条*/
+    var secheight = $("#sectionc").height();
+    var secahetght = $("#sectionc > a").outerHeight();
+    var sectext = $("#section").find("[plan_id=" + window.planId + "]").children("p").find("strong").text();
+    var secnum = parseInt(sectext.split(".")[0]);
+    $("#sectionc").scrollTop((secahetght * (secnum - 1)));
+    //未登录未报名弹层
+    
+            $("#sign_plan_need").show();
+        $("#playerContent").hide();
+        $("#coursebefore").hide();
+    
+            function NowTime(descSecond) {
+            descSecond = parseInt($("#coursebefore").find("p").eq(1).attr("second"));
+            if (isNaN(descSecond)) {
+                return;
+            }
+
+            hours = Math.floor(descSecond / 3600);
+            minute = Math.floor((descSecond - (hours * 3600)) / 60);
+
+            descSecond = descSecond - 63;
+            if (descSecond <= 0) {
+                descSecond = $("#coursebefore").find("p").eq(1).html("老师还未进入教室，请您耐心等待");
+                return;
+            }
+            descSecond = $("#coursebefore").find("p").eq(1).attr("second", descSecond);
+            if (hours == 0) {
+                descSecond = $("#coursebefore").find("p").eq(1).html("离开课时间:" + minute + "分");
+            } else {
+                descSecond = $("#coursebefore").find("p").eq(1).html("离开课时间:" + hours + "小时" + minute + "分");
+            }
+        }
+        window.setInterval(NowTime, 60000);
+    
+    //设置限制字数
+    $("#num_in").text(100 - $("#chat_input").text().length);
+    $('#chat_input').bind('focus keyup input paste', function () {
+        var curLength = $(this).text().length;
+        if (curLength > 100) {
+            var textin = $("#chat_input").text().substr(0, 100);
+            $("#chat_input").text(textin);
+        } else {
+            $('#num_in').text(100 - $(this).text().length)
+        }
+    });
+
+    /*设置goodself*/
+    var goodlist2 = $("#good_list");
+    var goodself2 = $("#good_self");
+    var s2 = goodlist2.find("li[userid=" + window.userId + "]").find("i[good2]").text();
+    goodself2.find("i[good2]").text(s2);
+    var checkleft = "1";
+    $('#ck_list>li').click(function () {
+        if ($('#tool').width() == 60) {
+            if ($(window).width() > 800) {
+                open_list();
+                if($(this).attr("ck")=="talk"){
+                    $("#forum").show();
+                }else{
+                    $("#forum").hide();
+                }
+            }
+            if ($('#toolbar-main>div:eq(' + $(this).index() + ')').height() == 0) {
+                $('#toolbar-main>div:eq(' + $(this).index() + ')').css({ 'height': $("#toolbar-main").height() + 'px' }).siblings().css({ 'height': '0px' });
+                $(this).addClass('selected').siblings().removeClass('selected');
+                if($(this).attr("ck")=="talk"){
+                    $("#forum").show();
+                }else{
+                    $("#forum").hide();
+                }
+            } else {
+                $(this).addClass('selected').siblings().removeClass('selected');
+            }
+        } else {
+            if ($('#toolbar-main>div:eq(' + $(this).index() + ')').height() == 0) {
+                $('#toolbar-main>div:eq(' + $(this).index() + ')').css({ 'height': $("#toolbar-main").height() + 'px' }).siblings().css({ 'height': '0px' });
+                $(this).addClass('selected').siblings().removeClass('selected');
+                if($(this).attr("ck")=="talk"){
+                    $("#forum").show();
+                }else{
+                    $("#forum").hide();
+                }
+            } else {
+                if ($(window).width() > 800) {
+                    close_list();
+                }
+                if($(this).attr("ck")=="talk"){
+                    $("#forum").show();
+                }else{
+                    $("#forum").hide();
+                }
+                $('#toolbar ul li').removeClass('selected');
+            }
+        }
+    });
+
+    var domthisplan = $("#section").find("[plan_id=" + window.planId + "]");
+    var domnextplan = domthisplan.next(); //下一个节点
+    var haha = domnextplan.attr("");
+    if (domnextplan.next().length == 0) {
+        $("#nextTime").html("没有更多课程");
+    } else {
+        var planisset = domnextplan.attr("plan_id");
+        if (typeof(planisset) == "undefined") {
+            var secname = domnextplan.find("span").eq(1).html();
+            $("#nextTime").html("下一节开课时间:" + secname);
+        } else {
+            var secname = domnextplan.find("strong").html();
+            $("#nextTime").html("下一节:" + secname);
+        }
+    }
+
+    $("#section a").each(function () {
+        var a = $(this).attr("plan_id");
+        if ($(this).attr("plan_id") == window.planId) {
+            $(this).addClass("curr");
+        }
+    });
+
+    if (checkleft == 2) {
+        $("#toolbar li[ck=talk]").trigger("click");
+    } else {
+        $("#toolbar li[ck=section]").trigger("click");
+    }
+
+	$(".upload_attach_msg").click(function(){
+		if(0==isLogin){
+			layer.msg("请登录后下载");
+		}else if(0==isReg){
+			layer.msg("请报名后下载");
+		}
+	});
+});
+
+function playerbox() {
+    var section = $('#sectionc');
+    var datumlist = $('#datum-list ul');
+    var chat = $('#chat');
+    var chatUl = $('#chat ul');
+    var datum = $('#datum-list') || $('#datum-list:hidden');
+    var rank_list = $('#rank-list ul');
+    var note_list = $('#note-list ul');
+    var w = $(window).width();
+    var h = $(window).height();
+    var main = $('#toolbar-main');
+    if ($(window).width() > 850) {
+        $('#content').height(h-$("header").height());
+        $('#tool,#tool-main,#coursebox').height(h-$("header").height());
+        section.height($(window).height() - 37 - 45);
+        datumlist.height($(window).height() - 37 - 45);
+        note_list.height($(window).height() - 37 - 45);
+        if(chat.height()>0){
+            chat.height(h -45);
+        }
+        chatUl.height(h - 165 -45);
+        rank_list.height(h - 101 - 45);
+        if ($('#toolbar-main').is(":hidden")) {
+            $('#tool').width(60);
+            $('#coursebox').width($(window).width() - 60);
+        } else {
+            $('#tool').width(385);
+            $("#forum").find(".edit-text").removeAttr("style");
+            $('#coursebox').width($(window).width() - 385);
+        }
+    } else {
+        var toolbar_box = $('#toolbar-main');
+        var t_h = h - 150;
+        var h2=h-parseInt(w*9/16)-50;
+        //toolbar_box.css('height', h2);
+        $("#chat_list").css('height',h2-40);
+        chatUl.height(h2-50);
+        section.height(h2);
+        $('#tool').height(h - parseInt(w * 9 / 16));
+        $('#coursebox').height(parseInt(w * 9 / 16));
+        rank_list.height(h2-60);
+        var forumWidth=$("#forum").width();
+        var forumicon=$("#forum").find(".edit-icon").width();
+        var forumbtn=$("#forum").find(".edit-button").width();
+        $("#forum").find(".edit-text").width(forumWidth-forumicon-forumbtn-20);
+    }
+};
+$(window).on( 'orientationchange', function(e){
+    orient();
+});
+function orient() {
+    if (window.orientation == 0 || window.orientation == 180) {
+        $("body").attr("class", "portrait");
+        orientation = 'portrait';
+        var w_h=$(window).height();
+        var w_w=$(window).width();
+        var w = $("#playerContent").innerWidth();
+        var h = parseInt(w / 16 * 9);
+        var header_h=$(window).height();
+        var chatUl = $('#chat ul');
+        var section = $('#sectionc');
+        var datumlist = $('#datum-list ul');
+        var h2= w_h-h-50;
+        $("#content").css({ "height":"100%","width":"100%" });
+        $("#tool").show();
+        $("#tool").css({ "width":"100%" });
+        $("#tool").height(w_h-parseInt(w*9/16));
+        $("#chat_list").css('height',h2-40);
+        chatUl.height(h2-50);
+        section.height(h2);
+        datumlist.height(h2);
+        $("#coursebox").css({ "width":"100%" })
+        return false;
+    }
+    else if (window.orientation == 90 || window.orientation == -90) {
+        $("body").attr("class", "landscape");
+        orientation = 'landscape';
+        var w_h=$(window).height();
+        var w_w=$(window).width();
+        $("#content").css({ "height":"100%","width":"100%" });
+        if(w_w > 760){
+        /*var tool_h;
+        if($("header")){
+            tool_h=w_h-$("header").height();
+        }else{
+            tool_h=w_h;
+        }*/
+        var header_h=$(window).height();
+        var chatUl = $('#chat ul');
+        var section = $('#sectionc');
+        var datumlist = $('#datum-list ul');
+        var w = $("#playerContent").innerWidth();
+        var h = parseInt(h/ 16 * 9);
+        var h2= w_h-h-50;
+        $("#chat_list").css('height',h2-40);
+        chatUl.height(h2-50);
+        section.height(h2);
+        datumlist.height(h2);
+        $("#tool").css({ "width":"300px" });
+        if(w_w > w_h){
+            $("#tool").height(w_h);
+        }else{
+            $("#tool").height(w_h-parseInt(w*9/16));
+        }
+        $("tool-main").css({ "width":"240px" });
+        $("tool-main").height(w_h-parseInt(w*9/16));
+        $("#coursebox").css({ "width":w_w-300,"height":w_h });
+
+        return false;
+        }else{
+            $("#tool").hide();
+            $("#content").css({ "height":"100%","width":"100%" });
+            $("#coursebox").css({ "height":"100%","width":"100%" });
+        }
+    }
+}
+//视频断开后弹层
+function showPlayerMessage(msg,butType){
+    var alertId=$("#call_buff");
+    var tipsTxt,btn;
+    tipsTxt='<p>'+msg+'</p>';
+    alertId.show();
+    alertId.find(".alert-mark-txt").empty();//清空提示内容
+    if(butType==1){
+        btn='<a href="javascript:reloadPage()" class="tec"><span></span>点击刷新</a>';
+    }else{
+        btn="<em id='show_btn' class='yellow-btn col-xs-6' style='float:none'>确定</em>";
+    }
+    alertId.find(".alert-mark-txt").append(tipsTxt);
+    alertId.find(".alert-mark-txt").append(btn);
+    $("#show_btn").click(function(){
+        $('#call_buff').hide();
+    });
+}
+function reloadPage(){
+    location.reload();
+}
+function hidePlayerMessage() {
+    $('#call_buff').hide();
+}
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]); return null; //返回参数值
+}
+</script>
+<div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253775234'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1253775234' type='text/javascript'%3E%3C/script%3E"));</script></div>
+</body>
+</html>

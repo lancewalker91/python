@@ -1,0 +1,22 @@
+from selenium import webdriver
+import time
+driver = webdriver.Chrome()
+driver.get('https://www.yunke.com/index.main.login')
+print('beforlogin================')
+tile = driver.title
+print(tile)
+now_url = driver.current_url
+print(now_url)
+driver.find_element_by_xpath(".//*[@id='yunkeSubmit']/div[1]/div[2]/input").clear()
+driver.find_element_by_xpath(".//*[@id='yunkeSubmit']/div[1]/div[2]/input").send_keys('17600117243')
+driver.find_element_by_xpath(".//*[@id='yunkeSubmit']/div[2]/input").clear()
+driver.find_element_by_xpath(".//*[@id='yunkeSubmit']/div[2]/input").send_keys('117243')
+driver.find_element_by_xpath(".//*[@id='yunkeSubmit']/div[4]/input").click()
+time.sleep(5)
+print('Aferlogin===========')
+tile = driver.title
+print(tile)
+now_url = driver.current_url
+print(now_url)
+user = driver.find_element_by_id('chick-down-show').text
+print(user)
